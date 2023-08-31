@@ -3,7 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 const Header = () => (
   <div className="header">
     <div className="logo">
-      <img src={LOGO_URL} alt="" srcset="" />
+      <img src={LOGO_URL} alt="app header" />
     </div>
     <div className="nav-items">
       <ul>
