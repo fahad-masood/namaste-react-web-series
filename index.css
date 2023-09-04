@@ -53,3 +53,7 @@
   margin: 5px;
   background: #f0f0f0;
 }
+
+.filter {
+  display: flex;
+}

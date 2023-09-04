@@ -7,7 +7,7 @@ const Header = () => (
     </div>
     <div className="nav-items">
       <ul>
-        <li>Search</li>
+        <li>Home</li>
         <li>Offers</li>
         <li>Cart</li>
       </ul>
