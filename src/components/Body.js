@@ -1,10 +1,30 @@
 import RestaurantCard from "./RestaurantCard";
-import { restaurants } from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(restaurants);
-  return (
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=19.0759837&lng=72.8776559"
+    );
+
+    const json = await data.json();
+    console.log(json);
+    setListOfRestaurants(
+      json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+  };
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
